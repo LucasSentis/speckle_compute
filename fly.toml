@@ -1,11 +1,18 @@
 # fly.toml file generated for lucassentis on 2023-03-04T12:37:38+08:00
 
 app = "lucassentis"
-kill_signal = "SIGINT"
-kill_timeout = 5
+kill_signal = "SIGUSR1"
+kill_timeout = 300
 processes = []
 
+[build]  
+builtin = "python"  
+
+[build.settings]  
+pythonbase = "3.9-slim-buster"
+
 [env]
+PORT = "8080"
 
 [experimental]
   auto_rollback = true
